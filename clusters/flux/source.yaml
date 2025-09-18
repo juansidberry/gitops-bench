@@ -5,8 +5,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30s
-  url: https://bitbucket.org/insightglobal/gitops-bench.git
-  secretRef:
-    name: flux-bitbucket-ssh
+  url: https://github.com/juansidberry/gitops-bench.git
+  # secretRef:
+  #   name: flux-bitbucket-ssh
   ref:
     branch: main

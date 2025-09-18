@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://bitbucket.org/insightglobal/gitops-bench.git
+    repoURL: https://github.com/juansidberry/gitops-bench.git
     targetRevision: main
     path: workloads/app/base
   destination:
