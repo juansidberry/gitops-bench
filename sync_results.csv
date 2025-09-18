@@ -1,0 +1,11 @@
+RUN,TOOL,OLD_TAG,NEW_TAG,SYNC_LATENCY_MS
+1,flux-demo,1.25.5,1.27.0,1162
+1,argocd-demo,1.27.0,1.25.5,397
+2,flux-demo,1.25.5,1.27.0,470
+2,argocd-demo,1.27.0,1.25.5,540
+3,flux-demo,1.25.5,1.27.0,800
+3,argocd-demo,1.27.0,1.25.5,470
+4,flux-demo,1.25.5,1.27.0,573
+4,argocd-demo,1.27.0,1.25.5,372
+5,flux-demo,1.25.5,1.27.0,460
+5,argocd-demo,1.27.0,1.25.5,694

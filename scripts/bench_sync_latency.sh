@@ -25,3 +25,4 @@ T_READY=$(scripts/wait_rollout.sh "$NS" "$DEPLOY")
 ELAPSED=$((T_READY - T0))
 
 echo "SYNC_LATENCY_MS,${NS},${OLD_TAG}->${NEW_TAG},${ELAPSED}"
+echo "${NS},${OLD_TAG},${NEW_TAG},${ELAPSED}" >> sync_results.csv

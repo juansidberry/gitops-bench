@@ -1,0 +1,11 @@
+run,app,namespace,elapsed-time
+1,flux,flux-demo,18573
+2,flux,flux-demo,210180
+3,flux,flux-demo,209960
+4,flux,flux-demo,209364
+5,flux,flux-demo,210124
+1,argocd,argocd-demo,2803
+2,argocd,argocd-demo,1995
+3,argocd,argocd-demo,1917
+4,argocd,argocd-demo,5855
+5,argocd,argocd-demo,17407
