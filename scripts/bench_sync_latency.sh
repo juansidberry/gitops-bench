@@ -15,7 +15,8 @@ sed -i.bak "s|nginx:${OLD_TAG}|nginx:${NEW_TAG}|g" workloads/app/base/deployment
 # 2) Commit and push
 git add workloads/app/base/deployment.yaml
 git commit -m "bench: bump image to ${NEW_TAG}"
-git push
+# git push
+git push > /dev/null 2>git_errors.log
 
 # 3) Start timers (local wall clock) & wait for rollout
 # T0=$(date +%s%3N) # for Linux, use date for milliseconds
