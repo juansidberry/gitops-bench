@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bench-set
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - { idx: "01" } # ... generate up to 50
+      # (You can script-generate these 50 entries)
+  template:
+    metadata:
+      name: bench-app-{{idx}}
+    spec:
+      project: default
+      source:
+        repoURL: https://bitbucket.org/insightglobal/gitops-bench.git
+        targetRevision: main
+        path: workloads/app/base
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd-demo-{{idx}}
+      syncPolicy:
+        automated: { prune: true, selfHeal: true }
