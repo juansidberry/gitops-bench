@@ -9,6 +9,26 @@ spec:
       elements:
       - { idx: "01" } # ... generate up to 50
       # (You can script-generate these 50 entries)
+      # - idx: '01'
+      # - idx: '02'
+      # - idx: '03'
+      # - idx: '04'
+      # - idx: '05'
+      # - idx: '06'
+      # - idx: '07'
+      # - idx: '08'
+      # - idx: '09'
+      # - idx: '10'
+      # - idx: '11'
+      # - idx: '12'
+      # - idx: '13'
+      # - idx: '14'
+      # - idx: '15'
+      # - idx: '16'
+      # - idx: '17'
+      # - idx: '18'
+      # - idx: '19'
+      # - idx: '20'
   template:
     metadata:
       name: bench-app-{{idx}}

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 REPO_DIR="${1:-$PWD}"          # path to your cloned gitops-bench
-echo "Using repo dir: $REPO_DIR"
+# echo "Using repo dir: $REPO_DIR"
 NS="$2"                        # flux-demo OR argocd-demo
 DEPLOY="demo"
 OLD_TAG="${3:-1.25.5}"
@@ -25,4 +25,4 @@ T_READY=$(scripts/wait_rollout.sh "$NS" "$DEPLOY")
 ELAPSED=$((T_READY - T0))
 
 echo "SYNC_LATENCY_MS,${NS},${OLD_TAG}->${NEW_TAG},${ELAPSED}"
-echo "${NS},${OLD_TAG},${NEW_TAG},${ELAPSED}" >> sync_results.csv
+echo "${T0},${NS},${OLD_TAG},${NEW_TAG},${ELAPSED}" >> sync_results.csv

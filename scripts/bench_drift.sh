@@ -26,7 +26,7 @@ CSV_FILE="drift_results.csv"
 DEPLOY="demo"
 
 # Write CSV header
-echo "run,app,namespace,elapsed-time" > "$CSV_FILE"
+# echo "time,run,app,namespace,elapsed-time" > "$CSV_FILE"
 
 for APP_NS in "flux flux-demo" "argocd argocd-demo"; do
   read -r APP NS <<< "$APP_NS"
@@ -48,6 +48,6 @@ for APP_NS in "flux flux-demo" "argocd argocd-demo"; do
     ELAPSED=$((T_READY - T0))
 
     # Append result to CSV
-    echo "${RUN},${APP},${NS},${ELAPSED}" >> "$CSV_FILE"
+    echo "${T0},${RUN},${APP},${NS},${ELAPSED}" >> "$CSV_FILE"
   done
 done
