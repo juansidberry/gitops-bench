@@ -1,0 +1,1065 @@
+Date: Tue, 30 Sep 2025 21:59:07 +0000 (UTC)
+Message-ID: <1896415356.3.1759269547349@c883c48a3b72>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_2_1215838488.1759269547349"
+
+------=_Part_2_1215838488.1759269547349
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Flux vs ArgoCD: a Plan for Benchmarking</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Flux vs ArgoCD: a Plan for Benchmarking</h1>
+    <div class=3D"Section1">
+        <h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-BenchmarkingPlan(Draft)=
+">
+<style>[data-colorid=3Djhzauu3anu]{color:#97a0af} html[data-color-mode=3Dda=
+rk] [data-colorid=3Djhzauu3anu]{color:#505968}[data-colorid=3Dm2mtvwilcu]{c=
+olor:#97a0af} html[data-color-mode=3Ddark] [data-colorid=3Dm2mtvwilcu]{colo=
+r:#505968}[data-colorid=3Drkyfg6xjxr]{color:#97a0af} html[data-color-mode=
+=3Ddark] [data-colorid=3Drkyfg6xjxr]{color:#505968}</style>Benchmarking Pla=
+n (Draft)</h1>
+<h3 id=3D"FluxvsArgoCD:aPlanforBenchmarking-ExecutiveSummary:BenchmarkingFl=
+uxvsArgoCD"><strong>Executive Summary: Benchmarking Flux vs Argo CD</strong=
+></h3>
+<p>This benchmarking aims to provide a data-driven comparison between <stro=
+ng>Flux System</strong> and <strong>Argo CD</strong>, two GitOps tools for =
+Kubernetes. The evaluation focuses on <em><strong>performance</strong></em>=
+, <em><strong>scalability</strong></em>, <em><strong>resource efficiency</s=
+trong></em>, and <em><strong>operational experience</strong></em>, using a =
+reproducible method.</p>
+<h4 id=3D"FluxvsArgoCD:aPlanforBenchmarking-OverallApproach"><strong>Overal=
+l Approach</strong></h4>
+<ol start=3D"1">
+<li>
+<p><strong>Environment Setup</strong></p>
+<ul>
+<li>
+<p>A separate Kubernetes cluster (AKS) is provisioned with necessary toolin=
+g.</p></li>
+<li>
+<p>Isolated namespaces for each GitOps controller.</p></li>
+<li>
+<p>Node pool separation to ensure fair resource isolation.</p></li>
+</ul></li>
+<li>
+<p><strong>Tool Installation</strong></p>
+<ul>
+<li>
+<p>Flux and Argo CD are installed using their respective recommended method=
+s.</p></li>
+<li>
+<p>Argo CD is configured with a UI.</p></li>
+<li>
+<p>Flux uses CLI and CRDs (Custom Resource Definitions).</p></li>
+</ul></li>
+<li>
+<p><strong>Shared Application Deployment</strong></p>
+<ul>
+<li>
+<p>A simple NGINX-based application is created and stored in a Git reposito=
+ry.</p></li>
+<li>
+<p>Both tools deploy this app to their respective namespaces, ensuring iden=
+tical workloads for side-by-side and fair comparison.</p></li>
+</ul></li>
+<li>
+<p><strong>Benchmarking Scenarios</strong><br>
+The following key metrics are measured:</p>
+<ul>
+<li>
+<p><strong>Sync Latency</strong>: Time from Git change to pod readiness.</p=
+></li>
+<li>
+<p><strong>Drift Repair</strong>: Time to self-heal after manual resource d=
+eletion.</p></li>
+<li>
+<p><strong>Controller Resource Usage</strong>: CPU and memory consumption d=
+uring operations.</p></li>
+<li>
+<p><strong>Scalability</strong>: Performance when managing 50 simultaneous =
+applications.</p></li>
+</ul></li>
+<li>
+<p><strong>Data Collection &amp; Analysis</strong></p>
+<ul>
+<li>
+<p>Scripts automate the measurement of latency, resource usage, and scale p=
+erformance.</p></li>
+<li>
+<p>Results are recorded in CSV files (and, maybe, some visualizations for c=
+omparison).</p></li>
+<li>
+<p>Logs and UI screenshots supplement the quantitative data.</p></li>
+</ul></li>
+<li>
+<p><strong>Operational Experience</strong></p>
+<ul>
+<li>
+<p>Qualitative observations:</p>
+<ul>
+<li>
+<p>ease of setup,</p></li>
+<li>
+<p>UI usability (Argo),</p></li>
+<li>
+<p>CLI/CRD workflows (Flux)</p></li>
+</ul></li>
+<li>
+<p>Highlighting differences in UX and operational support experience.</p></=
+li>
+</ul></li>
+<li>
+<p><strong>Fairness &amp; Consistency</strong></p>
+<ul>
+<li>
+<p>Both tools are configured with similar sync intervals and automation set=
+tings.</p></li>
+<li>
+<p>Optional webhook integration ensures parity in Git change detection.</p>=
+</li>
+</ul></li>
+<li>
+<p><strong>Deliverables</strong><br>
+The final output includes:</p>
+<ul>
+<li>
+<p>CSVs with benchmark results</p></li>
+<li>
+<p>Charts and averages</p></li>
+<li>
+<p>UI screenshots and controller logs</p></li>
+<li>
+<p>A one-pager summarizing key findings and insights</p></li>
+</ul></li>
+</ol>
+<hr>
+<p>A <strong>benchmarking plan</strong> we can run on AKS. It keeps <strong=
+>Flux</strong> and <strong>Argo CD</strong> side-by-side, deploys the <stro=
+ng>same app</strong> through both tools, then measures <strong>sync latency=
+, drift repair time, resource usage, and scalability</strong>.</p>
+<style type=3D"text/css">/*<![CDATA[*/
+div.rbtoc1759269547328 {padding: 0px;}
+div.rbtoc1759269547328 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1759269547328 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style>
+<div class=3D"toc-macro rbtoc1759269547328">
+<ul class=3D"toc-indentation">
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-BenchmarkingPlan(Draft)">=
+Benchmarking Plan (Draft)</a></li>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-0)Prereqs">0) Prereqs</a>=
+</li>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-1)Installthetools">1) Ins=
+tall the tools</a></li>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-2)Createasharedsampleapp(=
+usedbybothtools)">2) Create a shared sample app (used by both tools)</a></l=
+i>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-3)WireFluxtotherepo(deplo=
+ytoflux-demo)">3) Wire Flux to the repo (deploy to flux-demo)</a></li>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-4)WireArgoCDtothesamerepo=
+(deploytoargocd-demo)">4) Wire Argo CD to the same repo (deploy to argocd-d=
+emo)</a></li>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-5)Benchmarks&amp;Scripts"=
+>5) Benchmarks &amp; Scripts</a></li>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-6)Whattorecord(putinaCSVo=
+rsheet)">6) What to record (put in a CSV or sheet)</a></li>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-7)Optional=E2=80=9Cfairne=
+ss=E2=80=9Dtweaks">7) Optional =E2=80=9Cfairness=E2=80=9D tweaks</a></li>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-8)InterpretingResults(wha=
+ttohighlight)">8) Interpreting Results (what to highlight)</a></li>
+<li><a href=3D"#FluxvsArgoCD:aPlanforBenchmarking-9)Cleanup">9) Clean up</a=
+></li>
+</ul>
+</div>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-0)Prereqs"><strong>0) Prereqs</=
+strong></h1>
+<ul>
+<li>
+<p>AKS cluster + kubectl + helm + az-cli</p></li>
+<li>
+<p><code>jq</code>, <code>awk</code>, <code>sed</code>, <code>date</code> (=
+standard on macOS/Linux)</p></li>
+<li>
+<p>A <strong>Bitbucket</strong> Git repo we can push to.</p></li>
+<li>
+<p>Kubernetes Cluster: <code>sandbox-eus-aks-sroe-002</code> found in the <=
+a class=3D"external-link" href=3D"http://iglab.net" rel=3D"nofollow">iglab.=
+net</a> tenant.</p></li>
+<li>
+<p>A fresh namespace per tool:</p></li>
+</ul>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">kubectl=
+ create ns flux-system || true
+kubectl create ns flux-demo || true
+kubectl create ns argocd || true
+kubectl create ns argocd-demo || true</pre>
+</div>
+</div>
+<ul>
+<li>
+<p><strong>metrics-server</strong> installed so <code>kubectl top</code> wo=
+rks (AKS usually has it; if <code>kubectl top</code> pods fails, install me=
+trics-server from the official manifest).</p></li>
+<li>
+<p><strong>two node pools</strong>: For isolation, we can use separate<stro=
+ng> node pools</strong> (one tainted for <strong>Argo</strong>, one for <st=
+rong>Flux</strong>) so each controller runs on different nodes and doesn=E2=
+=80=99t influence each other=E2=80=99s CPU &amp; memory utilization.</p></l=
+i>
+</ul>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-1)Installthetools"><strong>1) I=
+nstall the tools</strong></h1>
+<h2 id=3D"FluxvsArgoCD:aPlanforBenchmarking-InstallFluxv2(CLIpath;simplest)=
+"><strong>Install&nbsp;Flux v2 (CLI path; simplest)</strong></h2>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence"># If we=
+ don=E2=80=99t have flux CLI: brew install fluxcd/tap/flux
+flux install --namespace=3Dflux-system</pre>
+</div>
+</div>
+<p></p>
+<h2 id=3D"FluxvsArgoCD:aPlanforBenchmarking-InstallArgoCD(Helm;enablesaNode=
+PortUIforfree)"><strong>Install&nbsp;Argo CD (Helm; enables a NodePort UI f=
+or free)</strong></h2>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">brew in=
+stall argocd
+helm repo add argo https://argoproj.github.io/argo-helm
+helm repo update
+helm upgrade --install argocd argo/argo-cd -n argocd --create-namespace \
+  --set server.service.type=3DNodePort \
+  --set server.extraArgs=3D{--insecure}
+# For quick UI access (port-forward):
+kubectl -n argocd port-forward svc/argocd-server 8080:80 &gt;/dev/null 2&gt=
+;&amp;1 &amp;
+echo "Argo UI: http://localhost:8080"
+echo "Admin password:"
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=3D'{.d=
+ata.password}' | base64 -d &amp;&amp; echo</pre>
+</div>
+</div>
+<blockquote>
+<p><em><span data-colorid=3D"jhzauu3anu">If we prefer a LoadBalancer for Ar=
+go=E2=80=99s UI, switch to </span></em></p>
+<p><code>--set server.service.type=3DLoadBalancer</code><em><span data-colo=
+rid=3D"rkyfg6xjxr"> </span></em></p>
+<p><em><span data-colorid=3D"m2mtvwilcu">(note: incurs LB cost).</span></em=
+></p>
+</blockquote>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-2)Createasharedsampleapp(usedby=
+bothtools)"><strong>2) Create a&nbsp;shared sample app (used by both tools)=
+</strong></h1>
+<p>In our Git repo (e.g., gitops-bench/), add:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">workloa=
+ds/app/base/deployment.yaml
+workloads/app/base/service.yaml
+workloads/app/base/kustomization.yaml</pre>
+</div>
+</div>
+<p><strong>deployment.yaml</strong> (nginx; we=E2=80=99ll flip the image ta=
+g to trigger rollouts):</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">apiVers=
+ion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+  labels: { app: demo }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: demo }
+  template:
+    metadata:
+      labels: { app: demo }
+    spec:
+      containers:
+      - name: web
+        image: nginx:1.25.5 # &lt;-- we will bump this tag in tests
+        ports: [{containerPort: 80}]</pre>
+</div>
+</div>
+<p><strong>service.yaml</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">apiVers=
+ion: v1
+kind: Service
+metadata:
+  name: demo
+spec:
+  selector: { app: demo }
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80</pre>
+</div>
+</div>
+<p><strong>kustomization.yaml</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">apiVers=
+ion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yaml
+  - service.yaml</pre>
+</div>
+</div>
+<p>Commit + push:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">git add=
+ .
+git commit -m "Add baseline app for benchmarking"
+git push</pre>
+</div>
+</div>
+<p></p>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-3)WireFluxtotherepo(deploytoflu=
+x-demo)"><strong>3) Wire&nbsp;Flux to the repo (deploy to&nbsp;flux-demo)</=
+strong></h1>
+<p>Create <strong>GitRepository</strong> + <strong>Kustomization</strong> (=
+adjust repo URL/branch):</p>
+<p><strong>clusters/flux/source.yaml</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">apiVers=
+ion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: bench-repo
+  namespace: flux-system
+spec:
+  interval: 30s
+  url: https://&lt;your-git-host&gt;/&lt;org&gt;/gitops-bench.git
+  ref:
+    branch: main</pre>
+</div>
+</div>
+<p><strong>clusters/flux/kustomization.yaml</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">apiVers=
+ion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: bench-app
+  namespace: flux-system
+spec:
+  interval: 30s
+  targetNamespace: flux-demo
+  prune: true
+  wait: true
+  path: ./workloads/app/base
+  sourceRef:
+    kind: GitRepository
+    name: bench-repo
+  timeout: 3m</pre>
+</div>
+</div>
+<p>Apply:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">kubectl=
+ apply -f clusters/flux/source.yaml
+kubectl apply -f clusters/flux/kustomization.yaml</pre>
+</div>
+</div>
+<p></p>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-4)WireArgoCDtothesamerepo(deplo=
+ytoargocd-demo)"><strong>4) Wire&nbsp;Argo CD to the same repo (deploy to&n=
+bsp;argocd-demo)</strong></h1>
+<p><strong>clusters/argocd/application.yaml</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">apiVers=
+ion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bench-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://&lt;your-git-host&gt;/&lt;org&gt;/gitops-bench.git
+    targetRevision: main
+    path: workloads/app/base
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd-demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true</pre>
+</div>
+</div>
+<p>Apply:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">kubectl=
+ apply -f clusters/argocd/application.yaml
+
+# create access-key to Bitbucket repo
+ssh-keygen -t ed25519 -C "argocd-bitbucket-demo"
+
+# Add Public Key to Bitbucket
+# Go to your Bitbucket repository &gt; Settings &gt; Access keys
+# Click Add key, paste the contents of id_ed25519.pub, and save.
+
+# Now, Create Kubernetes Secret for ArgoCD
+kubectl create secret generic argocd-bitbucket-ssh \
+  --from-file=3DsshPrivateKey=3D~/.ssh/id_ed25519 \
+  -n argocd</pre>
+</div>
+</div>
+<p></p>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-5)Benchmarks&amp;Scripts"><stro=
+ng>5) Benchmarks &amp; Scripts</strong></h1>
+<blockquote>
+<p>All tests follow the same pattern: <strong>make a known change =E2=86=92=
+ measure time until the new pods are Ready =E2=86=92 sample controller reso=
+urce usage</strong>.</p>
+</blockquote>
+<h2 id=3D"FluxvsArgoCD:aPlanforBenchmarking-Functiontowaitforarollout(usedb=
+ymultipletests)"><strong>Function to wait for a rollout (used by multiple t=
+ests)</strong></h2>
+<p>Create <code>scripts/wait_rollout.sh</code>:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">#!/usr/=
+bin/env bash
+set -euo pipefail
+NS=3D"$1"       # namespace holding the app (flux-demo or argocd-demo)
+DEPLOY=3D"$2"   # deployment name (demo)
+
+# Wait for new pods to be ready
+kubectl -n "$NS" rollout status deploy/"$DEPLOY" --timeout=3D5m &gt;/dev/nu=
+ll
+# Return a stable "pod ready" timestamp
+date +%s%3N</pre>
+</div>
+</div>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">chmod +=
+x scripts/wait_rollout.sh</pre>
+</div>
+</div>
+<p></p>
+<h2 id=3D"FluxvsArgoCD:aPlanforBenchmarking-Synclatency(Gitpush=E2=86=92pod=
+sReady)"><strong><span style=3D"background-color: rgb(248,230,160);">Sync l=
+atency</span> (Git push =E2=86=92 pods Ready)</strong></h2>
+<p>Create <code>scripts/bench_sync_latency.sh</code>:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">#!/usr/=
+bin/env bash
+set -euo pipefail
+REPO_DIR=3D"${1:-$PWD}"          # path to your cloned gitops-bench
+NS=3D"$2"                        # flux-demo OR argocd-demo
+DEPLOY=3D"demo"
+OLD_TAG=3D"${3:-1.25.5}"
+NEW_TAG=3D"${4:-1.27.0}"         # pick a different valid nginx tag
+
+cd "$REPO_DIR"
+
+# 1) Change image tag
+sed -i.bak "s|nginx:${OLD_TAG}|nginx:${NEW_TAG}|g" workloads/app/base/deplo=
+yment.yaml
+
+# 2) Commit and push
+git add workloads/app/base/deployment.yaml
+git commit -m "bench: bump image to ${NEW_TAG}"
+git push
+
+# 3) Start timers (local wall clock) &amp; wait for rollout
+### NOTE: uss the following for timestamp on Linux OS
+#T0=3D$(date +%s%3N)
+### NOTE: uss the following for timestamp on MacOS
+T0=3D$(python3 -c 'import time; print(int(time.time() * 1000))') # For macO=
+S, use Python for milliseconds
+
+T_READY=3D$(scripts/wait_rollout.sh "$NS" "$DEPLOY")
+ELAPSED=3D$((T_READY - T0))
+
+echo "SYNC_LATENCY_MS,${NS},${OLD_TAG}-&gt;${NEW_TAG},${ELAPSED}"</pre>
+</div>
+</div>
+<p>Usage (Flux):</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">./scrip=
+ts/bench_sync_latency.sh /path/to/gitops-bench flux-demo 1.25.5 1.27.0</pre=
+>
+</div>
+</div>
+<p>Usage (Argo):</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">./scrip=
+ts/bench_sync_latency.sh /path/to/gitops-bench argocd-demo 1.27.0 1.25.5</p=
+re>
+</div>
+</div>
+<blockquote>
+<p>Run multiple iterations (e.g., 5 each) and average.</p>
+</blockquote>
+<p></p>
+<h2 id=3D"FluxvsArgoCD:aPlanforBenchmarking-Driftrepairtime(deleteresource=
+=E2=86=92controllerrestores)"><strong><span style=3D"background-color: rgb(=
+248,230,160);">Drift repair time</span> (delete resource =E2=86=92 controll=
+er restores)</strong></h2>
+<p>Create <code>scripts/bench_drift.sh</code>:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">#!/usr/=
+bin/env bash
+set -euo pipefail
+NS=3D"$1"      # flux-demo or argocd-demo
+DEPLOY=3D"demo"
+
+# Delete managed resource to induce drift
+kubectl -n "$NS" delete deploy/"$DEPLOY" --wait=3Dfalse || true
+
+T0=3D$(date +%s%3N)
+
+# Wait until Deployment is recreated and Ready
+# (first wait until object exists again)
+echo "Waiting for deployment to reappear..."
+until kubectl -n "$NS" get deploy/"$DEPLOY" &gt;/dev/null 2&gt;&amp;1; do s=
+leep 1; done
+
+T_READY=3D$(scripts/wait_rollout.sh "$NS" "$DEPLOY")
+ELAPSED=3D$((T_READY - T0))
+echo "DRIFT_REPAIR_MS,${NS},${ELAPSED}"</pre>
+</div>
+</div>
+<p>Usage:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">./scrip=
+ts/bench_drift.sh flux-demo
+./scripts/bench_drift.sh argocd-demo</pre>
+</div>
+</div>
+<p></p>
+<h2 id=3D"FluxvsArgoCD:aPlanforBenchmarking-Controllerresourceusage(CPU/mem=
+duringchange)"><strong>Controller <span style=3D"background-color: rgb(248,=
+230,160);">resource usage</span> (CPU/mem during change)</strong></h2>
+<p>Create <code>scripts/bench_resources.sh</code>:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">#!/usr/=
+bin/env bash
+set -euo pipefail
+NS=3D"$1"               # flux-system OR argocd
+DUR_SEC=3D"${2:-120}"   # sample window (seconds)
+INTERVAL=3D"${3:-2}"    # sample every 2s
+
+END=3D$(( $(date +%s) + DUR_SEC ))
+echo "TS,POD,CPU(m),MEM(Mi),NS"
+while [ "$(date +%s)" -le "$END" ]; do
+  # requires metrics-server
+  kubectl top pod -n "$NS" --no-headers 2&gt;/dev/null | awk -v ns=3D"$NS" =
+-v ts=3D"$(date +%s)" '{print ts","$1","$2","$3","ns}'
+  sleep "$INTERVAL"
+done</pre>
+</div>
+</div>
+<p>Usage (sample around our sync/drift runs):</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">./scrip=
+ts/bench_resources.sh flux-system 120 2 | tee flux_resources.csv
+./scripts/bench_resources.sh argocd 120 2 | tee argo_resources.csv</pre>
+</div>
+</div>
+<blockquote>
+<p>Compute min/mean/max CPU(m) and MEM(Mi) per controller pod (e.g., with a=
+ spreadsheet or quick awk).</p>
+</blockquote>
+<p></p>
+<h2 id=3D"FluxvsArgoCD:aPlanforBenchmarking-Scalability(50apps)"><strong><s=
+pan style=3D"background-color: rgb(248,230,160);">Scalability</span> (50 ap=
+ps)</strong></h2>
+<h3 id=3D"FluxvsArgoCD:aPlanforBenchmarking-Flux:create50Kustomizationobjec=
+tspointingtothesamepath"><strong>Flux: create 50&nbsp;Kustomization&nbsp;ob=
+jects pointing to the same path</strong></h3>
+<p>Create <code>clusters/flux/kustomization-template.yaml</code>:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">apiVers=
+ion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: bench-app-__IDX__
+  namespace: flux-system
+spec:
+  interval: 30s
+  targetNamespace: flux-demo-__IDX__
+  prune: true
+  wait: true
+  path: ./workloads/app/base
+  sourceRef:
+    kind: GitRepository
+    name: bench-repo</pre>
+</div>
+</div>
+<p>Generate &amp; apply:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">for i i=
+n $(seq -w 01 50); do
+  kubectl create ns "flux-demo-$i" || true
+  sed "s/__IDX__/$i/g" clusters/flux/kustomization-template.yaml &gt; /tmp/=
+k-$i.yaml
+  kubectl apply -f /tmp/k-$i.yaml
+done</pre>
+</div>
+</div>
+<p>Measure:</p>
+<ul>
+<li>
+<p>Total time from <code>kubectl apply</code> of the last Kustomization unt=
+il <strong>all</strong> 50 namespaces have <strong>demo Deployment Ready</s=
+trong>.</p></li>
+<li>
+<p>Controller resource usage during the burst (<code>bench_resources.sh flu=
+x-system</code>).</p></li>
+</ul>
+<h3 id=3D"FluxvsArgoCD:aPlanforBenchmarking-ArgoCD:oneApplicationSetwith50a=
+pps"><strong>Argo CD: one&nbsp;ApplicationSet&nbsp;with 50 apps</strong></h=
+3>
+<p><strong>clusters/argocd/applicationset.yaml</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">apiVers=
+ion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bench-set
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - { idx: "01" } # ... generate up to 50
+      # (You can script-generate these 50 entries)
+  template:
+    metadata:
+      name: bench-app-{{idx}}
+    spec:
+      project: default
+      source:
+        repoURL: https://&lt;your-git-host&gt;/&lt;org&gt;/gitops-bench.git
+        targetRevision: main
+        path: workloads/app/base
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd-demo-{{idx}}
+      syncPolicy:
+        automated: { prune: true, selfHeal: true }</pre>
+</div>
+</div>
+<p>Apply + create namespaces:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">for i i=
+n $(seq -w 01 50); do kubectl create ns "argocd-demo-$i" || true; done
+kubectl apply -f clusters/argocd/applicationset.yaml</pre>
+</div>
+</div>
+<p>Measure:</p>
+<ul>
+<li>
+<p>Total time until <strong>all</strong> 50 Deployments Ready.</p></li>
+<li>
+<p>Controller resource usage (<code>bench_resources.sh argocd</code>).</p><=
+/li>
+</ul>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-6)Whattorecord(putinaCSVorsheet=
+)"><strong>6) What to record (put in a CSV or sheet)</strong></h1>
+<p><strong>sync_results.csv</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">RUN,TOO=
+L,NAMESPACE,OLD_TAG,NEW_TAG,SYNC_LATENCY_MS
+1,flux,flux-demo,1.25.5,1.27.0,XXXX
+1,argo,argocd-demo,1.25.5,1.27.0,YYYY
+...</pre>
+</div>
+</div>
+<p><strong>drift_results.csv</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">RUN,TOO=
+L,NAMESPACE,DRIFT_REPAIR_MS
+1,flux,flux-demo,XXXX
+1,argo,argocd-demo,YYYY
+...</pre>
+</div>
+</div>
+<p><strong>resources.csv</strong> (from bench_resources.sh)</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">TS,POD,=
+CPU(m),MEM(Mi),NS
+...</pre>
+</div>
+</div>
+<p><strong>scale_results.csv</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">TOOL,AP=
+P_COUNT,TOTAL_READY_SECONDS,NOTES
+flux,50,XXX,""
+argo,50,YYY,""</pre>
+</div>
+</div>
+<p>Also capture:</p>
+<ul>
+<li>
+<p><strong>Screenshots</strong> of Argo=E2=80=99s UI during sync.</p></li>
+<li>
+<p>Controller logs for errors (e.g., <code>kubectl -n argocd logs deploy/ar=
+gocd-application-controller -f</code> and Flux controllers in flux-system).=
+</p></li>
+</ul>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-7)Optional=E2=80=9Cfairness=E2=
+=80=9Dtweaks"><strong>7) Optional =E2=80=9Cfairness=E2=80=9D tweaks</strong=
+></h1>
+<ul>
+<li>
+<p>Set both tools to similar reconciliation cadence (<strong>30s</strong> i=
+n the examples).</p></li>
+<li>
+<p>Ensure both use <strong>auto-sync</strong> (<em>Argo default is manual i=
+f not set</em>).</p></li>
+<li>
+<p>If your Git host supports <strong>webhooks</strong>, enable them for bot=
+h tools; otherwise both will rely on polling.</p></li>
+</ul>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-8)InterpretingResults(whattohig=
+hlight)"><strong>8) Interpreting Results (what to highlight)</strong></h1>
+<ul>
+<li>
+<p><strong>Sync latency (median &amp; p95)</strong>: lower is better.</p></=
+li>
+<li>
+<p><strong>Drift repair time</strong>: time to self-heal after we delete De=
+ployment.</p></li>
+<li>
+<p><strong>Controller CPU/memory (mean &amp; peak)</strong> during bursts.<=
+/p></li>
+<li>
+<p><strong>Scale</strong>: time to converge 50 apps.</p></li>
+<li>
+<p><strong>Operational ergonomics</strong>: Argo=E2=80=99s UI vs Flux CRD/C=
+LI workflows (qualitative notes).</p></li>
+</ul>
+<h1 id=3D"FluxvsArgoCD:aPlanforBenchmarking-9)Cleanup"><strong>9) Clean up<=
+/strong></h1>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence"># Argo =
+stack &amp; namespaces
+kubectl delete ns argocd-demo --ignore-not-found
+for i in $(seq -w 01 50); do kubectl delete ns argocd-demo-$i --ignore-not-=
+found; done
+helm uninstall argocd -n argocd || true
+kubectl delete ns argocd --ignore-not-found
+
+# Flux stack &amp; namespaces
+kubectl delete ns flux-demo --ignore-not-found
+for i in $(seq -w 01 50); do kubectl delete ns flux-demo-$i --ignore-not-fo=
+und; done
+flux uninstall --namespace flux-system || true
+kubectl delete ns flux-system --ignore-not-found</pre>
+</div>
+</div>
+<p></p>
+<h2 id=3D"FluxvsArgoCD:aPlanforBenchmarking-Deliverables:"><strong>Delivera=
+bles:</strong></h2>
+<ol start=3D"1">
+<li>
+<p>The four CSVs (sync, drift, resources, scale) with averages and charts.<=
+/p></li>
+<li>
+<p>A one-pager with the highlights:</p>
+<ul>
+<li>
+<p>=E2=80=9CFlux median sync 1.2s vs Argo 1.6s=E2=80=9D (example numbers)</=
+p></li>
+<li>
+<p>Resource means/peaks</p></li>
+<li>
+<p>Screenshots (Argo UI), logs snippets (Flux controllers)</p></li>
+<li>
+<p>Any gotchas in setup/operations on AKS</p></li>
+</ul></li>
+</ol>
+<p>Results</p>
+<p></p>
+    </div>
+</body>
+</html>
+------=_Part_2_1215838488.1759269547349--
